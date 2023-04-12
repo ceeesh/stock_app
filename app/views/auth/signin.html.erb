@@ -1,0 +1,13 @@
+<p id="notice"> <%= notice %></p>
+
+<%= form_with scope: :user, url:signin_path , local: true do |form|%>
+    <%= form.label "Email" %>
+    <%= form.text_field :email %>
+
+    <%= form.label "Password" %>
+    <%= form.password_field :password %>
+
+    <%= form.submit "Sign In" %>
+
+    <p class="text-3xl font-bold underline">HEYLddLoss</p>
+<% end %>
