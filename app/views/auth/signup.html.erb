@@ -1,12 +1,26 @@
-<%= form_with scope: :user, url:signup_path, local: true do |form|%>
-    <%= form.label "Email" %>
-    <%= form.text_field :email %>
+<div class="bg w-full h-screen text-white flex justify-between ">
+    <div class="w-[550px] h-[500px] bg-white text-black rounded-xl p-10 flex flex-col items-center m-auto">
+<%= form_with scope: :user, class: "w-full", url:signup_path, local: true do |form|%>
 
-    <%= form.label "Password" %>
-    <%= form.password_field :password %>
+    <div class="mt-5">
+    <%= form.label "Email", class: "block" %>
+    <%= form.text_field :email, placeholder: "Juan@gmail.com", class: "rounded border-gray-200 w-full font-semibold" %>
+    </div>
 
-    <%= form.label "Password Confirmation" %>
-    <%= form.password_field :password_confirmation %>
+    <div class="mt-5">
+    <%= form.label "Password", class: "block" %>
+    <%= form.password_field :password, placeholder: "Password", class: "rounded border-gray-200 w-full font-semibold" %>
+    </div>
 
-    <%= form.submit "Sign Up" %>
+    <div class="mt-5">
+    <%= form.label "Password Confirmation", class: "block" %>
+    <%= form.password_field :password_confirmation, placeholder: "Password Confirmation", class: "rounded border-gray-200 w-full font-semibold" %>
+    </div>
+
+    <div class="mt-5">
+    <%= form.submit "Sign Up", class: 'rounded bg-[#0095e8] text-white w-full p-2 cursor-pointer' %>
+    </div>
 <% end %>
+<p class="mt-5">Already have an account? <%= link_to "Sign in here", signin_path, class: "cursor-pointer text-blue-500 font-semibold" %></p>
+    </div>
+</div>

@@ -32,6 +32,7 @@ class AuthController < ApplicationController
             puts 'hello we"ve done it'
             redirect_to signin_path
         else
+            flash.now[:notice] = @user.errors.full_messages.to_sentence
             render :signup, status: :unprocessable_entity
         end 
     end

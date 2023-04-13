@@ -1,7 +1,8 @@
 class User < ApplicationRecord
+    # validates :email, presence: true, uniqueness: true
+    # validates :password, presence: true, length: { in: 6..20 }
     include BCrypt
-    validates :email, presence: true, uniqueness: true
-    validates :password, presence: true, length: { in: 6..20 }
+    
     
     after_create :generate_token
 
