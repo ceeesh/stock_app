@@ -1,5 +1,11 @@
-<div class="w-full bg-black text-white flex justify-between">
-<div>NAVBAR</div> 
+<div class="h-[60px] w-full bg-black text-white flex justify-between py-5">
+    <div class="ml-5">
+        <li class="list-none flex gap-10">
+            <ul class="cursor-pointer">Home</ul>
+            <ul class="cursor-pointer">Profile</ul>
+            <ul class="cursor-pointer">Search</ul>
+        </li> 
+    </div> 
 
 <div><%= button_to "Log Out" ,logout_path, method: :delete, class: "mr-5" %></div>
 

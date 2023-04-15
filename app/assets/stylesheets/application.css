@@ -27,7 +27,9 @@
     background-size: cover; 
 }
 
-
+.home_bg {
+    background: url("home-bg.jpg")
+}
 
 /* body {
     background: black;

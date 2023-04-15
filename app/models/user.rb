@@ -1,8 +1,10 @@
 class User < ApplicationRecord
-    # validates :email, presence: true, uniqueness: true
+    validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}, uniqueness: true
+    
     # validates :password, presence: true, length: { in: 6..20 }
     include BCrypt
-    
+
+    has_secure_password
     
     after_create :generate_token
 
@@ -14,14 +16,14 @@ class User < ApplicationRecord
         create(email: user_params[:email], password: password_hash)
     end
 
-    def self.signin(user_params)
-        # User.find_by(...)
-       user ||= find_by(email: user_params[:email])
+    # def self.signin(user_params)
+    #     # User.find_by(...)
+    #    user ||= find_by(email: user_params[:email])
 
-       if user.present?
-        return user if Password.new(user.password) == user_params[:password]
-       end
-    end
+    #    if user.present?
+    #     return user if Password.new(user.password) == user_params[:password]
+    #    end
+    # end
 
     def generate_token
         # after creating, self is now the user object...

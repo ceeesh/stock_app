@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'auth#logout'
 
   get '/home' => 'user#index'
+  
+  namespace :admin do 
+    resources :dashboard
+  end
 end
