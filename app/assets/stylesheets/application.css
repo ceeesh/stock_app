@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+ }
+
+.bg {
+    background: url("login-bg.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover; 
+}
+
+.home_bg {
+    background: url("home-bg.jpg")
+}
+
+/* body {
+    background: black;
+} */
+

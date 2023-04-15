@@ -1,13 +1,26 @@
+<div class="bg w-full h-screen text-white flex justify-between ">
+<div>
+<h1>STOCKERSITIKSKS</h1>
+</div>
 <p id="notice"> <%= notice %></p>
+    <div class="w-[550px] h-[500px] bg-white text-black rounded-xl mt-7 mr-52 p-10 flex flex-col items-center">
+    <h1 class="text-4xl font-bold">Sign In</h1>
+    <p class="text-gray-500 mt-2">Invest for the future</p>
+    <%= form_with scope: :user, class: "w-full", url:signin_path, local: true do |form|%>
+    <div class="mt-5">
+    <%= form.label "Email", class: "block" %>
+    <%= form.email_field :email, placeholder: "Juan@gmail.com", class: "rounded border-gray-200 w-full font-semibold" %>
+    </div>
+    <div class="mt-5">
+    <%= form.label "Password", class: "block"  %>
+    <%= form.password_field :password, placeholder: "Password",class: "rounded border-gray-200 w-full font-semibold" %>
+    </div>
+    <p class="flex justify-end mt-2 text-blue-500 font-semibold cursor-pointer">Forgot Password?</p>
+    <div class="mt-5">
+    <%= form.submit "Sign In", class: 'rounded bg-[#0095e8] text-white w-full p-2 cursor-pointer' %>
+     </div>
+    <% end %>
 
-<%= form_with scope: :user, url:signin_path , local: true do |form|%>
-    <%= form.label "Email" %>
-    <%= form.text_field :email %>
-
-    <%= form.label "Password" %>
-    <%= form.password_field :password %>
-
-    <%= form.submit "Sign In" %>
-
-    <p class="text-3xl font-bold underline">HEYLddLoss</p>
-<% end %>
+    <p class="mt-5">New Here? <%= link_to "Sign up here", signup_path, class: "cursor-pointer text-blue-500 font-semibold" %></p>
+    </div>
+</div>

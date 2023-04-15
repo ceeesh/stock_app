@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  root 'home#index'
+  
   get '/signin' => 'auth#signin'
   get '/signup' => 'auth#signup'
   post '/signin' => 'auth#new_session'
@@ -11,4 +13,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'auth#logout'
 
   get '/home' => 'user#index'
+  
+  namespace :admin do 
+    resources :dashboard
+  end
 end
