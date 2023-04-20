@@ -74,6 +74,10 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 
 gem 'iex-ruby-client'
+
+gem 'erb-formatter'
+
 gem "chartkick", "~> 5.0"
 
 gem "groupdate", "~> 6.2"
+

@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     
     def authenticate_user
         if current_user.nil?
-            # redirect_to signin_path
+            redirect_to signin_path
             # render json: { unauthenticated: true }, status: 403
             # if the current_user is nil, we render unauthenticated
         end

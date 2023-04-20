@@ -10,6 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_104219) do
 ActiveRecord::Schema[7.0].define(version: 2023_04_18_113741) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
@@ -26,6 +28,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_113741) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer "type"
+    t.integer "quantity"
+    t.float "price"
+    t.integer "user_id", null: false
+    t.integer "stock_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_transactions_on_stock_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
+  create_table "user_stocks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "stock_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stock_id"], name: "index_user_stocks_on_stock_id"
+    t.index ["user_id"], name: "index_user_stocks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -34,6 +58,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_113741) do
     t.boolean "email_verification", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "balance", default: 15000
   end
 
+  add_foreign_key "transactions", "stocks"
+  add_foreign_key "transactions", "users"
+  add_foreign_key "user_stocks", "stocks"
+  add_foreign_key "user_stocks", "users"
 end

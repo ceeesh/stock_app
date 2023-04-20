@@ -1,0 +1,15 @@
+<%= form_with model: @user, url: path, local: true do |f| %>
+
+<%= f.label "Email"%>
+<%= f.email_field :email%>
+
+<%= f.label "Password" %>
+<%= f.password_field :password %>
+
+<%= f.label "Confirm Password"%>
+<%= f.password_field :password_confirmation %>
+
+<%= f.submit "Submit" %>
+
+<% end %>
+
