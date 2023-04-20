@@ -74,3 +74,5 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 
 gem 'iex-ruby-client'
+
+gem 'erb-formatter'

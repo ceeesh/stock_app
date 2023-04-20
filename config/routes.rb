@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   delete '/logout' => 'auth#logout'
 
   get '/home' => 'user#index'
-  
+  get '/user/:id' => 'user#show', as: 'user'
+  get '/user/:id/edit' => 'user#edit', as: 'edit_user'
+  patch '/user/:id' => 'user#update'
+  delete '/user/:id' => 'user#delete'
+
+  # post '/admin/dashboard' => 'admin/dashboard#create', as: 'create_admin_dashboard'
   namespace :admin do 
     resources :dashboard
   end

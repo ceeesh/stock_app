@@ -18,6 +18,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Poppins", sans-serif;
  }
 
 .bg {
@@ -28,7 +29,17 @@
 }
 
 .home_bg {
-    background: url("home-bg.jpg")
+    background: url("home-bg.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover; 
+}
+
+.admin_bg {
+    background: url("admin-bg.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover; 
 }
 
 /* body {

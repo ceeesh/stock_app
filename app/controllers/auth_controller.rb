@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
-    before_action :authenticate_user
+    skip_before_action :authenticate_user
+    
 
     # GET /signin
     def signin
