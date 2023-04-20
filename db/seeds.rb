@@ -9,3 +9,10 @@ include BCrypt
 
 
 User.create!(email: "superman@email.com" , password: Password.create('admin'), admin: true)
+
+(1..100).each do |i|
+    Post.create(title: "Title #{i}",
+        created_at: Time.now - i.days,
+        updated_at: Time.now - i.days,
+        views: rand(15..100) / (i * 0.1))
+end
