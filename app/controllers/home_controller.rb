@@ -2,17 +2,17 @@ class HomeController < ApplicationController
       # before_action :get_user
 
     def index
-        @client = IEX::Api::Client.new(
-            publishable_token: 'pk_34fbdfadc81c40ac87e98e4cf14d5edb',
-            endpoint: 'https://cloud.iexapis.com/v1'
-          )
-        @quote = @client.quote('MSFT')
+   
+        @quote = IEX_CLIENT.quote('MSFT')
 
         if current_user
           @user = current_user
         end
 
-        @chart = @client.chart('MSFT', '1d', chart_interval: 10)
+        @mostactive = IEX_CLIENT.stock_market_list(:mostactive)
+        # @chart = @client.chart('MSFT', '1d', chart_interval: 10)
+        @logo = IEX_CLIENT.logo('data')
+
      end
 
     #  IEX::Api.configure do |config|

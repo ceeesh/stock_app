@@ -13,6 +13,15 @@ class AuthController < ApplicationController
 
     def new_session
         # @user = User.new(email: user_params[:email], password: user_params[:password])
+        # if user = User.signup(user_params)
+        #     session[:user_id] = user.id
+        #     redirect_to root_path notice: "Logged in successfully"
+        #     puts "We're in"
+        #     # format.json { render token: user.token, status: 200 }
+        # else
+        #     flash.now[:notice] = "Invalid email or password"
+        #     render :signin, json: { not_found: true }, status: 403
+        # end
         
         @user = User.find_by(email: user_params[:email])
         if @user && @user.password == user_params[:password_digest]

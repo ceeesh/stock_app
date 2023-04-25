@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}, uniqueness: true
-    # validates :password, presence: true, length: { in: 6..20 }
+    # validates :password, presence: true, length: { in: 8..20 }
 
     has_many :transactions, dependent: :delete_all
     has_many :user_stocks, dependent: :delete_all

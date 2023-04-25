@@ -260,11 +260,8 @@ DEPENDENCIES
   capybara
   chartkick (~> 5.0)
   debug
-
   erb-formatter
-
   groupdate (~> 6.2)
-
   iex-ruby-client
   importmap-rails
   jbuilder

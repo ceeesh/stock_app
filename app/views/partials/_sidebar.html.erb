@@ -1,0 +1,17 @@
+<div class="h-[877px] top-0 left-0 flex flex-col w-72 bg-[#01161E] text-white">
+    <div class="">
+        <div class="border-[#4A6FA5] mb-4">
+            <h1 class="text-5xl ml-5  mt-2 "><%= @user.email.split("@")[0].upcase%></h1>
+            <p class="text-xl py-2 pl-3 mt-5">Current Balance: <%= @user.balance%></p>
+        </div>
+
+        <div class="">
+            <ul>
+                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3 cursor-pointer">Latest Trade News</li>
+                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3 cursor-pointer">Bull Hunt</li>
+                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3 cursor-pointer">Dead Stocks</li>
+                
+            <ul>
+        </div>
+    </div>
+</div>

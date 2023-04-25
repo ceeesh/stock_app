@@ -10,6 +10,10 @@ class Admin::DashboardController < Admin::BaseController
         @user = User.find(params[:id])
     end
 
+    def pending_users
+        @users = User.all
+    end
+
     #get /new
     def new 
         @user = User.new
