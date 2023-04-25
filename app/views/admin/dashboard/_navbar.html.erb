@@ -1,0 +1,14 @@
+<div class="h-[60px] w-full bg-[#01161E] text-white flex justify-between py-5 z-50">
+    <div class="ml-5">
+        <li class="list-none flex gap-10">
+            <ul class="w-[35px]"><%= link_to image_tag("bull-market (1).png"), admin_dashboard_index_path %></ul>
+        </li> 
+    </div> 
+
+    <div>
+        <li class="list-none flex gap-10">
+            <ul><%= button_to "Log Out" ,logout_path, method: :delete, class: "mr-5 hover:text-green-800"  %></ul>
+        </li>
+    </div>
+
+</div>

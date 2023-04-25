@@ -1,12 +1,16 @@
-<div class="h-[60px] w-full bg-[#4A6FA5] text-white flex justify-between py-5 z-50">
+<div class="h-[60px] w-full bg-[#01161E] text-white flex justify-between py-5 z-50">
     <div class="ml-5">
-        <li class="list-none flex gap-10">
-            <ul class="cursor-pointer">Home</ul>
-            <ul class="cursor-pointer">Portfolio</ul>
-            <ul class="cursor-pointer">Search</ul>
-        </li> 
+        <ul class="list-none flex gap-10">
+            <li class="w-[35px]"><%= link_to image_tag("bull-market (1).png"), root_path %></li>
+            <li class="cursor-pointer hover:text-green-800"><%= link_to "Portfolio", portfolio_index_path %></li>
+            <li class="cursor-pointer hover:text-green-800">Search</li>
+        </ul> 
     </div> 
 
-<div><%= button_to "Log Out" ,logout_path, method: :delete, class: "mr-5" %></div>
+    <div>
+        <ul class="list-none flex gap-10">
+            <li><%= button_to "Log Out" ,logout_path, method: :delete, class: "mr-5  hover:text-green-800" %></li>
+        </ul>
+    </div>
 
 </div>

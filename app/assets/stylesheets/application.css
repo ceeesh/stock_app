@@ -25,27 +25,8 @@
  }
 
 .bg {
-    background: url("login-bg.jpg");
+    background: url("bg.jpg");
     background-repeat: no-repeat, repeat;
     background-position: center;
     background-size: cover; 
 }
-
-.home_bg {
-    background: url("home-bg.jpg");
-    background-repeat: no-repeat, repeat;
-    background-position: center;
-    background-size: cover; 
-}
-
-.admin_bg {
-    background: url("admin-bg.jpg");
-    background-repeat: no-repeat, repeat;
-    background-position: center;
-    background-size: cover; 
-}
-
-/* body {
-    background: black;
-} */
-

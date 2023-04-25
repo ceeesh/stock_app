@@ -1,15 +1,14 @@
-<div class="h-[877px] top-0 left-0 flex flex-col w-72 bg-[#C0D6DF] ">
+<div class="h-[877px] top-0 left-0 flex flex-col w-72 bg-[#01161E] text-white">
     <div class="">
-        <div>
-            <h1>ADMIN</h1>
+        <div class="border-[#4A6FA5] mb-4">
+            <h1 class="text-5xl ml-5  mt-2 ">ADMIN</h1>
         </div>
 
-        <div>
+        <div class="">
             <ul>
-                <li><%= link_to "Users", admin_dashboard_index_path %></li>
-                <li><%= link_to "Create New User", new_admin_dashboard_path %></li>
-                <li><%= link_to "Pending Users", admin_dashboard_index_path %></li>
-                <li></li>
+                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Active Users", admin_dashboard_index_path %></li>
+                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Create New User", new_admin_dashboard_path %></li>
+                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Pending Users", pending_users_path %></li>
             <ul>
         </div>
     </div>
