@@ -4,7 +4,6 @@ class AuthController < ApplicationController
 
     # GET /signin
     def signin
-        
     end
 
     # GET /signup
@@ -12,23 +11,15 @@ class AuthController < ApplicationController
     end 
 
     def new_session
-        # @user = User.new(email: user_params[:email], password: user_params[:password])
-        # if user = User.signup(user_params)
-        #     session[:user_id] = user.id
-        #     redirect_to root_path notice: "Logged in successfully"
-        #     puts "We're in"
-        #     # format.json { render token: user.token, status: 200 }
-        # else
-        #     flash.now[:notice] = "Invalid email or password"
-        #     render :signin, json: { not_found: true }, status: 403
-        # end
-        
-        @user = User.find_by(email: user_params[:email])
-        if @user && @user.password == user_params[:password_digest]
-            session[:user_id] = @user.id
-            redirect_to root_path notice: "Logged in successfully"
-            puts "We're in"
-            # format.json { render token: user.token, status: 200 }
+        if user = User.signin(user_params)
+            session[:token] = user.token
+            if user.admin?
+                redirect_to admin_dashboard_index_path
+            else
+                redirect_to root_path notice: "Logged in successfully"
+                puts "We're in"
+                # format.json { render token: user.token, status: 200 }
+            end
         else
             flash.now[:notice] = "Invalid email or password"
             render :signin, json: { not_found: true }, status: 403
@@ -39,26 +30,20 @@ class AuthController < ApplicationController
 
     # POST /signup
     def new_account
-    #     # @user = User.new(signup_params)
-        
-    #     # if @user.save
-    #     #     redirect_to root_path
-    #     # else
-    #     #     render :signin, status: :unprocessable_entity
-    #     # end
-        if (signup_params[:password] == signup_params[:password_confirmation])
-            @user = User.signup(user_params)
-
+        if (signup_params[:password] == signup_params[:password_confirmation] && signup_params[:password].length >= 8)
+            user = User.signup(signup_params)
             puts 'hello we"ve done it'
             redirect_to signin_path
+            print user
+            puts 'no new'
         else
-            flash.now[:notice] = @user.errors.full_messages.to_sentence
+            # flash.now[:notice] = @user.errors.full_messages.to_sentence
             render :signup, status: :unprocessable_entity
         end 
     end
 
     def logout
-        session[:user_id] = nil
+        session[:token] = nil
         redirect_to signin_path, notice: "Logged out"
     end
 
@@ -69,6 +54,6 @@ class AuthController < ApplicationController
     end
 
     def signup_params
-        params.permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation)
     end
 end

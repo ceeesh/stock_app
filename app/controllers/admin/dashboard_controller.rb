@@ -1,22 +1,35 @@
 class Admin::DashboardController < Admin::BaseController
     layout 'admin/base'
+    # before_action :get_user
     
     def index
-        @users = User.all
+        # @users = User.all
         # admin/dashboard
+        @cur_user = current_user
+
+        @q = User.ransack(params[:q])
+        @users = @q.result(distinct: true)
     end
+
+    def search
+        index
+        render :index
+      end
 
     def show
         @user = User.find(params[:id])
+        @cur_user = current_user
     end
 
     def pending_users
         @users = User.all
+        @cur_user = current_user
     end
 
     #get /new
     def new 
         @user = User.new
+        @cur_user = current_user
     end
 
     # POST /new
@@ -32,6 +45,7 @@ class Admin::DashboardController < Admin::BaseController
 
     def edit
         @user = User.find(params[:id])
+        @cur_user = current_user
     end
 
     def update 
@@ -44,17 +58,21 @@ class Admin::DashboardController < Admin::BaseController
         end
     end
 
-    def delete
+    def destroy
         @user = User.find(params[:id])
         @user.destroy
 
-        redirect_to admin_dashboard_index_path
+        if @user.email_verification?
+            redirect_to admin_dashboard_index_path
+        else
+            redirect_to pending_users_path
+        end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation, :balance)
+        params.require(:user).permit(:email, :password, :balance)
     end
 
     def signup_params
@@ -62,7 +80,7 @@ class Admin::DashboardController < Admin::BaseController
     end
 
     # def get_user
-    #     @user = User.find_by_admin(session[:user_id])
+    #     @user = User.find_by(session[:token])
 
     #     if @user.admin?
     #         redirect_to admin_dashboard_index_path

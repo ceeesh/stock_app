@@ -7,7 +7,7 @@
     <h1 class="font-bold text-4xl">Stock Price (kunwari lang)</h1>
     <%= link_to 'New post', new_post_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
-  <%= line_chart Post.group_by_day(:created_at, range: 1.month.ago.midnight..Time.now).sum(:views) %>
+  <%= line_chart Post.group_by_day(:created_at, range: 1.month.ago.midnight..Time.now) %>
   <div id="posts" class="min-w-full">
     <%= render @posts %>
   </div>
