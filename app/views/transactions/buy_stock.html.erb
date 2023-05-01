@@ -1,11 +1,11 @@
 <div class="bg h-screen w-full text-black relative">
-    <%= render "partials/navbar"%>
     <div class="flex flex-row">
         <%= render "partials/sidebar"%>
         <div class="flex flex-col w-[1200px] mx-auto">
             
             <div class="w-full">
-                <%= form_with model: @transaction, url: transactions_buy_path, local: true do |f| %>
+                <%= form_with model: @transaction, url: save_transaction_path, local: true do |f| %>
+                <%= f.hidden_field :kind, value: "buy" %>
                 <h1 class="text-center text-5xl mt-5">Buy Stock</h1>
                 <div class="">
 

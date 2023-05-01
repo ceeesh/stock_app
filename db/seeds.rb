@@ -8,7 +8,7 @@
 include BCrypt
 
 
-User.create!(email: "superman@email.com" , password: Password.create('admin'), admin: true)
+# User.create!(email: "admin@test.com" , password: Password.create('admin'), admin: true)
 
 (1..100).each do |i|
     Post.create(title: "Title #{i}",
@@ -16,3 +16,10 @@ User.create!(email: "superman@email.com" , password: Password.create('admin'), a
         updated_at: Time.now - i.days,
         views: rand(15..100) / (i * 0.1))
 end
+
+
+    User.create! do |u|
+      u.email = 'admin@test.com'
+      u.password = 'password'
+      u.admin = true
+    end
