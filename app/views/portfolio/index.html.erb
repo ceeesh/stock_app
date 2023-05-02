@@ -29,6 +29,30 @@
                         <% end %>
                     </tbody>
                 </table>
+                    <h1 class="text-center text-5xl mt-5">Transactions History</h1>
+                 <table class="table-auto border border-slate-500 ml-5 w-full">
+                
+                    <thead>
+                        <tr>
+                            <th class="border border-slate-600 py-3 px-2">Price</th>
+                            <th class="border border-slate-600 py-3 px-2">Quantity</th>
+                            <th class="border border-slate-600 py-3 px-2">Type</th>
+                            <th class="border border-slate-600 py-3 px-2">Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <% @transactions.each do |trans| %>
+                            <%if trans.quantity > 0 %>
+                                <tr class="hover:text-white">
+                                    <td class="border border-slate-700 py-3 px-6 text-xl text-center"><%= trans.price %></td>
+                                    <td class="border border-slate-700 py-3 px-6 text-xl text-center"><%= trans.quantity %></td>
+                                    <td class="border border-slate-700 py-3 px-6 text-xl text-center"><%= trans.kind %></td>
+                                    <td class="border border-slate-700 py-3 px-6 text-xl text-center"><%= trans.symbol %></td>
+                                </tr>
+                            <% end %>
+                        <% end %>
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>

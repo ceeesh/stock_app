@@ -11,11 +11,6 @@ class Admin::DashboardController < Admin::BaseController
         @users = @q.result(distinct: true)
     end
 
-    def search
-        index
-        render :index
-      end
-
     def show
         @user = User.find(params[:id])
         @cur_user = current_user

@@ -23,3 +23,5 @@ end
       u.password = 'password'
       u.admin = true
     end
+
+    

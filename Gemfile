@@ -84,4 +84,5 @@ gem 'erb-formatter'
 gem "chartkick", "~> 5.0"
 
 gem "groupdate", "~> 6.2"
-
+gem 'simplecov', require: false, group: :test
+gem 'flash_rails_messages'

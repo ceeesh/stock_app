@@ -18,10 +18,9 @@ class AuthController < ApplicationController
             else
                 redirect_to root_path notice: "Logged in successfully"
                 puts "We're in"
-                # format.json { render token: user.token, status: 200 }
             end
         else
-            flash.now[:notice] = "Invalid email or password"
+            flash.now[:alert] = "Invalid email or password"
             render :signin, json: { not_found: true }, status: 403
         end
     end
@@ -37,7 +36,7 @@ class AuthController < ApplicationController
             print user
             puts 'no new'
         else
-            # flash.now[:notice] = @user.errors.full_messages.to_sentence
+            # flash.now[:notice] = user.errors.full_messages.to_sentence
             render :signup, status: :unprocessable_entity
         end 
     end

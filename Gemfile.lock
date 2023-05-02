@@ -90,6 +90,7 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     erb-formatter (0.4.3)
       syntax_tree (~> 6.0)
     erubi (1.12.0)
@@ -123,6 +124,8 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
+    flash_rails_messages (2.3.0)
+      rails (>= 5.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     groupdate (6.2.0)
@@ -239,6 +242,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -289,6 +298,7 @@ DEPENDENCIES
   debug
   erb-formatter
   factory_bot_rails
+  flash_rails_messages
   groupdate (~> 6.2)
   iex-ruby-client
   importmap-rails
@@ -298,6 +308,7 @@ DEPENDENCIES
   ransack
   rspec-rails
   selenium-webdriver
+  simplecov
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
