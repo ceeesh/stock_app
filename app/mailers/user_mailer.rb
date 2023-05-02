@@ -1,9 +1,10 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
-
+  default from: "processed_meat@zohomail.com"
+  layout "mailer"
+  
   def welcome_email
-    @user = params[:user]
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    @user_name = params[:user][:user]
+    @email_address = params[:user][:email]
+    mail(to: @email_address, subject: 'Welcome to Bullish Hunter')
   end
 end

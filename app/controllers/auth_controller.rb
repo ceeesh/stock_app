@@ -49,6 +49,7 @@ class AuthController < ApplicationController
         if (signup_params[:password] == signup_params[:password_confirmation])
             @user = User.signup(user_params)
 
+            UserMailer.with(user: user_params).welcome_email.deliver_later
             puts 'hello we"ve done it'
             redirect_to signin_path
         else

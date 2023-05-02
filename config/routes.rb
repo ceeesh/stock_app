@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   post '/signup' => 'auth#new_account'
   delete '/logout' => 'auth#logout'
 
+  #FOr Testing Mailbox
+  get 'mailbox/platform', as: :platform
+  post "mailbox/action", to: "mailbox#padala", as: :padala
+
   get '/home' => 'user#index'
 
   get '/user/:id' => 'user#show', as: 'user'
