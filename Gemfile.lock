@@ -89,9 +89,15 @@ GEM
     debug (1.7.2)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    diff-lcs (1.5.0)
     erb-formatter (0.4.3)
       syntax_tree (~> 6.0)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faraday (1.10.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -202,10 +208,31 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     regexp_parser (2.7.0)
     reline (0.3.3)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.11)
+      rspec-expectations (~> 3.11)
+      rspec-mocks (~> 3.11)
+      rspec-support (~> 3.11)
+    rspec-support (3.12.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.8.6)
@@ -261,12 +288,15 @@ DEPENDENCIES
   chartkick (~> 5.0)
   debug
   erb-formatter
+  factory_bot_rails
   groupdate (~> 6.2)
   iex-ruby-client
   importmap-rails
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
+  ransack
+  rspec-rails
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

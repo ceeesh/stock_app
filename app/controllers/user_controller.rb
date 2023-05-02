@@ -25,12 +25,12 @@ class UserController < ApplicationController
         end
     end
 
-    def delete
-        @user = User.find(params[:id])
-        @user.destroy
+    # def delete
+    #     @user = User.find(params[:id])
+    #     @user.destroy
 
-        redirect_to admin_dashboard_index_path
-    end
+    #     redirect_to admin_dashboard_index_path
+    # end
 
     private
 

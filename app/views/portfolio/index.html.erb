@@ -1,5 +1,5 @@
 <div class="bg h-screen w-full text-black relative">
-    <%= render "partials/navbar"%>
+
     <div class="flex flex-row">
         <%= render "partials/sidebar"%>
         <div class="flex flex-col">
@@ -24,7 +24,6 @@
                                     <td class="border border-slate-700 py-3 px-6 text-xl"><%= stock.quantity %></td>
                                     <td class="border border-slate-700 py-3 px-6 text-xl"><%= stock.symbol %></td>
                                     <td class="border border-slate-700 py-3 px-6 text-xl"><%= link_to "Sell", transactions_sell_path(stock.symbol)%></td>
-                                    </td>
                                 </tr>
                             <% end %>
                         <% end %>

@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root 'home#index'
+  # root 'posts#index'
   resources :posts
   get '/signin' => 'auth#signin'
   get '/signup' => 'auth#signup'
-  post '/signin' => 'auth#new_session'
-  post '/signup' => 'auth#new_account'
+  post '/signin' => 'auth#new_session', as: 'new_session'
+  post '/signup' => 'auth#new_account', as: 'new_account'
   delete '/logout' => 'auth#logout'
 
   get '/home' => 'user#index'
@@ -20,11 +21,13 @@ Rails.application.routes.draw do
 
   get '/transactions/index' => 'transactions#index'
 
-  get '/transactions/buy_stock/:symbol' => 'transactions#buy_stock', as: 'transactions_buy'
-  post '/transactions/buy_stock/:symbol' => 'transactions#buy'
+  get '/transactions/:symbol/buy' => 'transactions#buy_stock', as: 'transactions_buy'
+  # post '/transactions/buy_stock/:symbol' => 'transactions#buy'
   
-  get '/transactions/sell_stock/:symbol' => 'transactions#sell_stock', as: 'transactions_sell'
-  post '/transactions/sell_stock/:symbol' => 'transactions#sell'
+  get '/transactions/:symbol/sell' => 'transactions#sell_stock', as: 'transactions_sell'
+  # post '/transactions/sell_stock/:symbol' => 'transactions#sell'
+
+  post '/transactions/:symbol' => 'transactions#save_transaction', as: 'save_transaction'
 
   get '/portfolio/index' => 'portfolio#index'
 

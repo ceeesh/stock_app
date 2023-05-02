@@ -3,16 +3,15 @@ class HomeController < ApplicationController
 
     def index
    
-        @quote = IEX_CLIENT.quote('MSFT')
+        # @quote = IEX_CLIENT.quote('MSFT')
 
         if current_user
           @user = current_user
         end
 
         @mostactive = IEX_CLIENT.stock_market_list(:mostactive)
+        # @stocks_active = IEX_CLIENT.stock_market_list(:mostactive).sort_by(&:latest_volume).reverse
         # @chart = @client.chart('MSFT', '1d', chart_interval: 10)
-        @logo = IEX_CLIENT.logo('data')
-
      end
 
     #  IEX::Api.configure do |config|
@@ -25,14 +24,14 @@ class HomeController < ApplicationController
 
     private
 
-    def get_user
-      @user = User.find_by(id: session[:user_id])
+    # def get_user
+    #   @user = User.find_by(id: session[:user_id])
 
-      if !@user.admin?
-          redirect_to root_path
-      # else
-      #     redirect_to admin_dashboard_index_path
-      end
-  end
+    #   if !@user.admin?
+    #       redirect_to root_path
+    #   # else
+    #   #     redirect_to admin_dashboard_index_path
+    #   end
+    # end
 end
 

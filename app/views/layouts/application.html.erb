@@ -3,7 +3,7 @@
   <head>
     <title>StockApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <% stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %> 
@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <main class="h-screen w-full bg">
+    <main class="h-screen w-full bg overflow-hidden">
       <%= yield %>
     </main>
   </body>

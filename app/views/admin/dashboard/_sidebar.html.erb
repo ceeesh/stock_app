@@ -1,15 +1,38 @@
-<div class="h-[877px] top-0 left-0 flex flex-col w-72 bg-[#01161E] text-white">
-    <div class="">
-        <div class="border-[#4A6FA5] mb-4">
-            <h1 class="text-5xl ml-5  mt-2 ">ADMIN</h1>
+<div class="h-screen top-0 left-0 flex flex-col w-72 bg-[#01161E] text-white border-r-2 border-[#728C69]">
+    <div class="flex flex-col justify-between flex-1">
+        <div class="border-[#4A6FA5] mb-4 p-3">
+            <p class="w-[55px] mt-5"><%= link_to image_tag("bull-market (1).png"), root_path %></p>
+          
+            <div class="mt-5">
+                <%= render "search_form"%>
+            </div>
         </div>
 
-        <div class="">
-            <ul>
-                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Active Users", admin_dashboard_index_path %></li>
-                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Create New User", new_admin_dashboard_path %></li>
-                <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Pending Users", pending_users_path %></li>
-            <ul>
+        <div class="flex-1 ">
+                <ul>
+                    <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Active Users", admin_dashboard_index_path %></li>
+                    <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Create New User", new_admin_dashboard_path %></li>
+                    <li class="text-2xl hover:bg-[#afbfa4] hover:text-[#01161E] p-3"><%= link_to "Pending Users", pending_users_path %></li>
+                <ul>
+        </div>
+
+        <div class="p-3">
+            <div class="bg-[#142F43] p-3 rounded-lg ">
+                <p class="font-bold text-lg">Latest Trade News</p>
+                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.</p>
+                <p class="mt-5 rounded-full"><%= link_to image_tag("news.jpg", class: "rounded"), admin_dashboard_index_path%></p>
+            </div>
+        </div>
+
+        <div class="border-t flex justify-between items-center p-5 mt-3">
+            <div class="flex items-center gap-x-2">
+                <%= image_tag('dp.png', class: "w-[25px]")%>
+                <h1 class=""><%= @cur_user.email.split("@")[0].capitalize  %></h1>
+            </div>
+
+            <div>
+                <%= button_to "Log Out" ,logout_path, method: :delete, class: ""  %>
+            </div>
         </div>
     </div>
 </div>
