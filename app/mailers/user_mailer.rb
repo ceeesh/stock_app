@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
-  default from: "processed_meat@zohomail.com"
+  default from: "notifications-noreply@bullishhunter.com"
   layout "mailer"
-  
+
   def welcome_email
     @user_name = params[:user][:user]
     @email_address = params[:user][:email]
