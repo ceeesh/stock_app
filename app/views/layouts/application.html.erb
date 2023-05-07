@@ -3,14 +3,20 @@
   <head>
     <title>StockApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <% stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %> 
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <main class="h-screen w-full bg overflow-hidden">
+      <%= yield %>
+    </main>
   </body>
 </html>

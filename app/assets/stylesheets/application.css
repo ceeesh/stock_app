@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+ .lol {
+    border: 1px solid red;
+ }
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Karla', sans-serif;
+ }
+
+.bg {
+    background: url("bg.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover; 
+}
+
+.search {
+    background: transparent;
+    border: 1px solid #728C69;
+}
+
+.search:focus {
+   box-shadow: 5px 0px 10px #728C69;
+   border-color: #728C69;
+}
+
+.search::placeholder {
+  color: white;
+}

@@ -1,0 +1,121 @@
+<div class="bg h-screen w-full text-black relative">
+    <div class="flex flex-row">
+        <%= render "partials/sidebar"%>
+        <div class="flex flex-col py-2 px-7 flex-1 ">
+            <div class="flex flex-row gap-2 ">
+                <% @user.user_stocks.slice(0, 4).each do |stock|%>
+                <div class="flex-1 shadow rounded border bg-[#142F43] text-white border-gray-500 p-4">
+                    <div class="flex justify-between">
+                        <div class="flex flex-col">
+                            <h1>Current Shares Owned</h1>
+                            <p><%= stock.quantity %></p>
+                        </div>
+
+                        <div>
+                            <h1 class="text-3xl">Icon</h1>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <h1><%= stock.company_name %></h1>
+                        <h1><%= stock.symbol %></h1>
+                    </div>
+                </div>
+                    
+                <% end %>
+                
+
+                
+            </div>
+
+            <div class="flex flex-row mt-2 gap-2 text-white">
+                        <table class="flex-1 basis-2/4 w-auto table-auto bg-[#142F43] rounded-md overflow-y-scroll">
+                            <thead>
+                                <tr>
+                                    <th class="border-r border-slate-600 py-3">Company Name</th>
+                                    <th class="border border-slate-600 py-3">Avg Total Volume</th>
+                                    <th class="border border-slate-600 py-3">Market Cap</th>
+                                    <th class="border border-slate-600 py-3">Latest Price</th>
+                                    <th class="border border-slate-600 py-3">Change Percent</th>
+                                    <th class="border border-slate-600 py-3">Symbol</th>
+                                    <th class="border-l border-slate-600 py-3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @mostactive.slice(0, 10).each do |data| %>
+                                <tr class="hover:text-[#728C69]">
+                                    <td class="border-r  border-t border-slate-700 py-3 px-3 text-xl"><%= data.company_name %></td>
+                                    <td class="border border-slate-700 py-3 px-3 text-xl"><%= data.avg_total_volume%></td>
+                                    <td class="border border-slate-700 py-3 px-3 text-xl"><%= data.market_cap %></td>
+                                    <td class="border border-slate-700 py-3 px-3 text-xl"><%= data.latest_price %></td>
+                                    <td class="border border-slate-700 py-3 px-3 text-xl"><%= data.change_percent_s %></td>
+                                    <td class="border border-slate-700 py-3 px-3 text-xl"><%= data.symbol %></td>
+                                    <td class=" border-l  border-t border-slate-700 py-3 px-5 text-xl"><%= link_to "Buy", transactions_buy_path(data.symbol) %> 
+                                    </td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+
+                    <div class="flex-1 basis-1/4 w-auto">
+                        <div class="flex flex-col">
+
+                            <div class="flex-1">
+                                <div class="w-auto h-full shadow rounded border bg-[#142F43] border-gray-500 overflow-hidden px-5 py-3 ">
+                                    <div class="flex">
+                                        <h1>ICON</h1>
+
+                                        <h2>name</h2>
+                                    </div>
+                                    
+                                    <div>
+                                        <ul>
+                                            <li>hello</li>
+                                            <li>hello</li>
+                                            <li>hello</li>
+                                            <li>hello</li>
+                                            <li>hello</li>
+                                            <li>hello</li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="flex-1 mt-2 h-10">
+                                <div class="w-auto h-full shadow rounded overflow-hidden border bg-[#142F43] border-gray-500 px-5 py-3 ">
+                                     <div class="flex">
+                                        <h1>ICON</h1>
+
+                                        <h2>News</h2>
+                                    </div>
+                                    
+                                    <div>
+                                        <p>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                         orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                         orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                         orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                         orem ipsum dolor sit amet consectetur adipisicing elit. Natus harum officia eligendi velit.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                      
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

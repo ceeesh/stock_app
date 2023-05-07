@@ -1,0 +1,13 @@
+<div class="bg h-screen w-full text-black relative">
+        <div class="flex flex-row">
+            <%= render "sidebar"%>
+                <div class="w-full">
+                    <h1 class="text-center text-5xl mt-5">Create New User</h1>
+                        <div class="">
+                            <%= render "form", scope: :user, path: admin_dashboard_index_path %>
+                        </div>
+                </div>
+        </div>
+</div>
+
+

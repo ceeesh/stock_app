@@ -1,0 +1,43 @@
+<div class="bg h-screen w-full text-black relative">
+<div class="flex flex-row">
+<%= render "sidebar"%>
+<div class="flex flex-col">
+<h1 class="text-center text-5xl mt-5">Pending Users</h1>
+
+<table class="table-auto border border-slate-500 ml-5 ">
+    <thead>
+        <tr>
+            <th class="border border-slate-600 py-3">Email</th>
+            <th class="border border-slate-600 py-3">ID No.</th>
+            <th class="border border-slate-600 py-3">Verified</th>
+            <th class="border border-slate-600 py-3">Created At</th>
+            <th class="border border-slate-600 py-3">Balance</th>
+            <th class="border border-slate-600 py-3" colspan='3'>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @users.each do |user|%>
+    <% if !user.admin && !user.email_verification %>
+        <tr class="hover:text-white">
+            <td class="border border-slate-700 py-3 px-6 text-2xl"><%= user.email%></td>
+            <td class="border border-slate-700 py-3 px-6 text-2xl"><%= user.id%></td>
+            <td class="border border-slate-700 py-3 px-6 text-2xl"><%= user.email_verification%></td>
+            <td class="border border-slate-700 py-3 px-6 text-2xl"><%= user.created_at%></td>
+            <td class="border border-slate-700 py-3 px-6 text-2xl"><%= user.balance %></td>
+            <td class="border border-slate-700 py-3 px-6 text-2xl"><%= link_to 'View', admin_dashboard_path(user.id) %></td>
+            <td class="border border-slate-700 py-3 px-6 text-2xl"><%= link_to 'Edit', edit_admin_dashboard_path(user.id) %></td>
+            <td class="border border-slate-700 py-3 px-6 text-2xl"><%= button_to "Delete", admin_dashboard_path(user.id), method: :delete %></td>
+        </tr>
+            <% end%>
+<% end%>
+    </tbody>
+</table>
+
+
+    <p></p>
+
+
+</div>
+</div>
+</div>
