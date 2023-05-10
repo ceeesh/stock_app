@@ -1,0 +1,33 @@
+<div class="w-full ">
+    <%= form_with model: @user, url: path, local: true do |f| %>
+
+    <div class="mx-96">
+
+        <div class="mt-5">
+            <%= f.label "Email", class: "block"%>
+            <%= f.email_field :email, placeholder: "Juan@gmail.com", class: "w-full rounded"%>
+        </div>
+
+        <div class="mt-5">
+            <%= f.label "Password", class: "block" %>
+            <%= f.password_field :password, placeholder: "Password", class: "w-full rounded" %>
+        </div>
+
+        <div class="mt-5">
+            <%= f.label "Confirm Password", class: "block"%>
+            <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "w-full rounded" %>
+        </div>
+
+        <div class="mt-5">
+            <%= f.label "Balance", class: "block"%>
+            <%= f.number_field :balance, placeholder: "Juan@gmail.com", class: "w-full rounded" %>
+        </div>
+
+        <div class="mt-5">
+            <%= f.submit "Submit", class: 'rounded bg-[#01161E] text-white p-2 cursor-pointer w-full hover:bg-[#22414d]' %>
+        </div>
+
+        <% end %>
+    </div>
+
+</div>

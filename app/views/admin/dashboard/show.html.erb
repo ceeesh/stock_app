@@ -1,0 +1,16 @@
+<div class="bg h-screen w-full text-black relative">
+    <div class="flex flex-row">
+    <%= render "sidebar"%>
+        <div class="flex flex-col ml-5">
+            <p class="text-4xl mt-5 font-bold">Email: <span class="font-thin"><%= @user.email%></span></p>
+            <p class="text-4xl mt-5 font-bold">ID:<span class="font-thin"> <%= @user.id%></span></p>
+            <p class="text-4xl mt-5 font-bold">Balance: <span class="font-thin"><%= @user.balance%></span></p>
+            <p class="text-4xl mt-5 font-bold">Created At: <span class="font-thin"><%= @user.created_at %></span></p>
+            <p class="text-4xl mt-5 font-bold">Stocks Owned: 
+            <span class="font-thin"><% @user.user_stocks.each do |stock|%>
+                <%= stock.symbol %>
+            <% end %></span>
+            </p>
+        </div>
+    </div>
+</div>
